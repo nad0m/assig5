@@ -21,42 +21,31 @@ public class Phase1
 		   char[] suit = {'C', 'D', 'H', 'S'};
 		   char[] value = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T',
                       'J', 'Q', 'K', 'X'};
-		   String fileName = "images/";
 		   int counter = 0;
-		   
-		   
-	      // build the file names ("AC.gif", "2C.gif", "3C.gif", "TC.gif", etc.)
-	      // in a SHORT loop.  For each file name, read it in and use it to
-	      // instantiate each of the 57 Icons in the icon[] array.
-		   
+		   		   
 		   for (int i = 0; i < suit.length; i++)
-		   {
+		   {			   
 			   for (int j = 0; j < value.length; j++)
 			   {
-				   fileName ="images/";
-				   fileName += String.valueOf(value[j]) + String.valueOf(suit[i]) + ".gif";
-				   icon[counter] = new ImageIcon (fileName);
+				   icon[counter] = new ImageIcon (turnIntIntoCardValue(value, j) +
+						   						  turnIntIntoCardSuit(suit, i));
 				   counter++;
 			   }
-		   }
-		   
-		   icon[counter] = new ImageIcon("images/BK.gif");
-		   
-		  
-		   
+		   }		   
+		   icon[counter] = new ImageIcon("images/BK.gif");			   
 	   }
 	   
-	  /* // turns 0 - 13 into "A", "2", "3", ... "Q", "K", "X"
-	   static String turnIntIntoCardValue(int k)
-	   {
-	      // an idea for a helper method (do it differently if you wish)
+	   // turns 0 - 13 into "A", "2", "3", ... "Q", "K", "X"
+	   static String turnIntIntoCardValue(char[] value, int j)
+	   {		   
+	      return "images/" + String.valueOf(value[j]);
 	   }
 	   
 	   // turns 0 - 3 into "C", "D", "H", "S"
-	   static String turnIntIntoCardSuit(int j)
+	   static String turnIntIntoCardSuit(char[] suit, int i)
 	   {
-	      // an idea for another helper method (do it differently if you wish)
-	   }*/
+	      return String.valueOf(suit[i]) + ".gif";
+	   }
 	   
 	   // a simple main to throw all the JLabels out there for the world to see
 	   public static void main(String[] args)
