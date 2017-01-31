@@ -18,12 +18,31 @@ public class Phase1
 	      
 	   static void loadCardIcons()
 	   {
+		   char[] suit = {'C', 'D', 'H', 'S'};
+		   char[] value = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T',
+                      'J', 'Q', 'K', 'X'};
+		   String fileName = "images/";
+		   int counter = 0;
+		   
+		   
 	      // build the file names ("AC.gif", "2C.gif", "3C.gif", "TC.gif", etc.)
 	      // in a SHORT loop.  For each file name, read it in and use it to
 	      // instantiate each of the 57 Icons in the icon[] array.
 		   
-		   ImageIcon ace = new ImageIcon("images/AC.gif");
-		   icon[0] = ace;
+		   for (int i = 0; i < suit.length; i++)
+		   {
+			   for (int j = 0; j < value.length; j++)
+			   {
+				   fileName ="images/";
+				   fileName += String.valueOf(value[j]) + String.valueOf(suit[i]) + ".gif";
+				   icon[counter] = new ImageIcon (fileName);
+				   counter++;
+			   }
+		   }
+		   
+		   icon[counter] = new ImageIcon("images/BK.gif");
+		   
+		  
 		   
 	   }
 	   
@@ -45,7 +64,7 @@ public class Phase1
 	      int k;
 	      
 	      // prepare the image icon array
-	      //loadCardIcons();
+	      loadCardIcons();
 	      
 	      // establish main frame in which program will run
 	      JFrame frmMyWindow = new JFrame("Card Room");
@@ -57,19 +76,15 @@ public class Phase1
 	      FlowLayout layout = new FlowLayout(FlowLayout.CENTER, 5, 20);   
 	      frmMyWindow.setLayout(layout);
 	      
-	      JLabel ace = new JLabel ("card");
-	      ImageIcon aceIcon = new ImageIcon ("images/AC.gif");
-	      ace.setIcon(aceIcon);
-	      frmMyWindow.add(ace);
 	      
-	     /* // prepare the image label array
+	     // prepare the image label array
 	      JLabel[] labels = new JLabel[NUM_CARD_IMAGES];
 	      for (k = 0; k < NUM_CARD_IMAGES; k++)
 	         labels[k] = new JLabel(icon[k]);
 	      
 	      // place your 3 controls into frame
 	      for (k = 0; k < NUM_CARD_IMAGES; k++)
-	         frmMyWindow.add(labels[k]);*/
+	         frmMyWindow.add(labels[k]);
 
 	      // show everything to the user
 	      frmMyWindow.setVisible(true);
