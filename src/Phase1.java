@@ -54,6 +54,7 @@ public class Phase1
 	      
 	      // prepare the image icon array
 	      loadCardIcons();
+	      CardTable table = new CardTable();
 	      
 	      // establish main frame in which program will run
 	      JFrame frmMyWindow = new JFrame("Card Room");
@@ -76,6 +77,7 @@ public class Phase1
 	         frmMyWindow.add(labels[k]);
 
 	      // show everything to the user
+
 	      frmMyWindow.setVisible(true);
 	   }
 
