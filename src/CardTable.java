@@ -26,16 +26,31 @@ public class CardTable extends JFrame
 	      setSize(1150, 650);
 	      setLocationRelativeTo(null);
 	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	      
 	      JPanel mainPanel = new JPanel();
 	      pnlComputerHand = new JPanel();
 	      pnlHumanHand = new JPanel();
 	      pnlPlayArea = new JPanel();
+	      
 	      mainPanel.setLayout(new GridLayout(3, 1));
 	      mainPanel.add(pnlComputerHand);
 	      mainPanel.add(pnlPlayArea);
 	      mainPanel.add(pnlHumanHand);
 	      add(mainPanel, BorderLayout.CENTER);
+	      
+	      pnlComputerHand.setBorder(BorderFactory.createTitledBorder("Computer Hand"));
+	      pnlHumanHand.setBorder(BorderFactory.createTitledBorder("Your Hand"));
+	      pnlPlayArea.setBorder(BorderFactory.createTitledBorder("Playing Area"));
+	      pnlPlayArea.setLayout(new GridLayout(2, 2));
 	}
 	
+	public int getNumCardsPerHand()
+	{
+		return numCardsPerHand;
+	}
+	public int getNumPlayers()
+	{
+		return numPlayers;
+	}
 	
 }

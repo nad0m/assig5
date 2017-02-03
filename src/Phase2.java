@@ -24,14 +24,10 @@ public class Phase2
 	      
 	      // establish main frame in which program will run
 	      CardTable myCardTable = new CardTable();
-	      myCardTable.setSize(800, 600);
 	      myCardTable.setLocationRelativeTo(null);
 	      myCardTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      
-	      myCardTable.pnlComputerHand.setBorder(BorderFactory.createTitledBorder("Computer Hand"));
-	      myCardTable.pnlHumanHand.setBorder(BorderFactory.createTitledBorder("Your Hand"));
-	      myCardTable.pnlPlayArea.setBorder(BorderFactory.createTitledBorder("Playing Area"));
-	      myCardTable.pnlPlayArea.setLayout(new GridLayout(2, 2));
+
 
 	      // show everything to the user
 	      myCardTable.setVisible(true);
