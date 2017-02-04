@@ -7,7 +7,7 @@
 class Deck
 {
 
-   private static final int NUMBER_OF_CARDS = 52;
+   private static final int NUMBER_OF_CARDS = 56;
    public static final int MAX_CARDS = 6 * NUMBER_OF_CARDS;
    private static Card[] masterPack = new Card[NUMBER_OF_CARDS];
    private static boolean emptyMasterPack = true;
@@ -74,15 +74,15 @@ class Deck
       {
          if (i < 13)
          {
-            suit = Card.Suit.CLUBS;
+            suit = Card.Suit.C;
          } else if (i < 26)
-            suit = Card.Suit.DIAMONDS;
+            suit = Card.Suit.D;
          else if (i < 39)
          {
-            suit = Card.Suit.HEARTS;
+            suit = Card.Suit.H;
          } else
          {
-            suit = Card.Suit.SPADES;
+            suit = Card.Suit.S;
          }
          // change suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % 13], suit);

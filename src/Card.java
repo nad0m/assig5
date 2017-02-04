@@ -19,11 +19,11 @@ class Card
     */
    public static enum Suit
    {
-      CLUBS, DIAMONDS, HEARTS, SPADES
+      C, D, H, S
    }
 
    public final static char[] cardNumber =
-   { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A' };
+   { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
 
    /**
     * The constructor calls the mutator to initialize the values. It takes two
@@ -43,7 +43,7 @@ class Card
     */
    public Card()
    {
-      set('A', Suit.SPADES);
+      set('A', Suit.S);
    }
 
    /**
@@ -148,4 +148,6 @@ class Card
    {
       return errorFlag;
    }
+   
+   
 }

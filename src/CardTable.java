@@ -19,13 +19,11 @@ public class CardTable extends JFrame
 	private int numPlayers;
 	
 	public JPanel pnlComputerHand, pnlHumanHand, pnlPlayArea;
+
 	
-	CardTable()
+	CardTable(String title, int numCardsPerHand, int numPlayers)
 	{	
-	      super();
-	      setSize(1150, 650);
-	      setLocationRelativeTo(null);
-	      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	      super(title);
 	      
 	      JPanel mainPanel = new JPanel();
 	      pnlComputerHand = new JPanel();

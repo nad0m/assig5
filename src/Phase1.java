@@ -54,7 +54,7 @@ public class Phase1
 	      
 	      // prepare the image icon array
 	      loadCardIcons();
-	      CardTable table = new CardTable();
+	      
 	      
 	      // establish main frame in which program will run
 	      JFrame frmMyWindow = new JFrame("Card Room");
