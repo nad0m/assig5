@@ -1,6 +1,5 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.Random;
 
 import javax.swing.Icon;
@@ -8,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class Phase3 implements MouseMotionListener
+public class Phase3 implements MouseListener
 {
    static int NUM_CARDS_PER_HAND = 7;
    static int  NUM_PLAYERS = 2;
@@ -36,7 +35,6 @@ public class Phase3 implements MouseMotionListener
        myCardTable.setLocationRelativeTo(null);
        myCardTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        Phase3 p = new Phase3();
-       myCardTable.addMouseMotionListener(p);
          
        // show everything to the user
        myCardTable.setVisible(true);
@@ -47,7 +45,8 @@ public class Phase3 implements MouseMotionListener
        for (int i = 0; i < NUM_CARDS_PER_HAND; i++)
        {
          computerLabels[i] = new JLabel(GUICard.getBackCardIcon());
-         humanLabels[i] = new JLabel (GUICard.getIcon(highCardGame.getHand(0).inspectCard(i)));       
+         humanLabels[i] = new JLabel (GUICard.getIcon(highCardGame.getHand(0).inspectCard(i)));
+         humanLabels[i].addMouseListener(p);
        }
      
        // ADD LABELS TO PANELS -----------------------------------------
@@ -55,7 +54,7 @@ public class Phase3 implements MouseMotionListener
        {
          myCardTable.pnlComputerHand.add(computerLabels[i]);
          myCardTable.pnlHumanHand.add(humanLabels[i]);
-         humanLabels[i].addMouseMotionListener(p);
+        
   
        }
        JLabel playerCardLabel;
@@ -100,22 +99,6 @@ public class Phase3 implements MouseMotionListener
        return Card.cardNumber[randNum.nextInt(Card.cardNumber.length)];
     }
 
-   @Override
-   public void mouseDragged(MouseEvent e)
-   {
-      JLabel j = (JLabel)e.getSource();
-      Icon i =j.getIcon();
-      i.paintIcon(e.getComponent(), j.getParent().getGraphics(), e.getX(), e.getY());
-      j.getParent().getParent().repaint();
-      // TODO Auto-generated method stub
-      System.out.println("test");
-   }
 
-   @Override
-   public void mouseMoved(MouseEvent e)
-   {
-      // TODO Auto-generated method stub
-      
-   }
       
 }
