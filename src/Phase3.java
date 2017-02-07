@@ -17,8 +17,7 @@ public class Phase3
    static JLabel[] playLabelText  = new JLabel[NUM_PLAYERS]; 
    static CardTable myCardTable;
    static CardGameFramework highCardGame;
-   public static Card humanCard;
-   public static Card computerCard;
+
    
    public static void main(String[] args)
    {
