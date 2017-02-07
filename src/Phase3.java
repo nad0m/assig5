@@ -16,6 +16,10 @@ public class Phase3
    static JLabel[] playedCardLabels  = new JLabel[NUM_PLAYERS]; 
    static JLabel[] playLabelText  = new JLabel[NUM_PLAYERS]; 
    static CardTable myCardTable;
+   static CardGameFramework highCardGame;
+   public static Card humanCard;
+   public static Card computerCard;
+   
    public static void main(String[] args)
    {
       int numPacksPerDeck = 1;
@@ -23,7 +27,7 @@ public class Phase3
       int numUnusedCardsPerPack = 0;
       Card [] unusedCardsPerPack = null;
 
-      CardGameFramework highCardGame = new CardGameFramework( 
+     highCardGame = new CardGameFramework( 
             numPacksPerDeck, numJokersPerPack,  
             numUnusedCardsPerPack, unusedCardsPerPack, 
             NUM_PLAYERS, NUM_CARDS_PER_HAND);
