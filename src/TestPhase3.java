@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import org.junit.Test;
 
 
-public class Phase3 {
+public class TestPhase3 {
 	static int NUM_CARDS_PER_HAND = 7;
 	static int  NUM_PLAYERS = 2;
 	static JLabel[] computerLabels = new JLabel[NUM_CARDS_PER_HAND];
@@ -30,7 +30,7 @@ public class Phase3 {
 	
 	@Test
 	public void sortCardTest(){
-	   Deck d = new Deck(2);
+	   Deck d = new Deck(1);
 	   d.getPack();
 	   d.shuffle();
 	   Card[] test = d.getPack();
