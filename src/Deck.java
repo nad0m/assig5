@@ -61,7 +61,9 @@ class Deck
       for (int i = 0; i < cards.length; i++)
       {
          cards[i] = masterPack[i % NUMBER_OF_CARDS];
-         topCard++;
+         if(topCard != cards.length){
+            topCard++;
+         }
       }
 
    }
@@ -140,29 +142,32 @@ class Deck
     */
    public boolean removeCard(Card card)
    {
-      for (int i = topCard-1; i > 0; i--)
+      for (int i = topCard - 1; i > 0; i--)
       {
-         if(cards[i]!=null && card!= null){
-         while (cards[i].equals(card))
+         if (cards[i] != null && card != null)
          {
-            Card temp = dealCard();
-            if (!(temp.equals(card)))
+            while (cards[i].equals(card))
             {
-               cards[i] = temp;
+               Card temp = dealCard();
+               if (!(temp.equals(card)))
+               {
+                  cards[i] = temp;
+               }
             }
-         }
          }
 
       }
       return isNotInDeck(card);
    }
-   
+
    /**
     * check that a card is no longer in the deck.
+    * 
     * @param card
     * @return false if the card exist, otherwise true
     */
-   private boolean isNotInDeck(Card card){
+   private boolean isNotInDeck(Card card)
+   {
       boolean exist = true;
       for (int j = 0; j < topCard; j++)
       {
@@ -176,14 +181,34 @@ class Deck
 
    public boolean addCard(Card card)
    {
-      // make sure there aren't too many instances of the card.   
-     // if(ca)
-      // add the card to the top of the deck
+      // make sure there aren't too many instances of the card.
+      if (countOccurences(card) <= numPacks * 4 && topCard < cards.length)
+      {
+         cards[topCard] = card;
+         topCard++;
+         return true;
+      } else
+      {
+         return false;
 
-      // return false if there are too many.
-
-      return false;
-
+      }
    }
 
+   private int countOccurences(Card card)
+   {
+      int count = 0;
+      for (int j = 0; j < topCard; j++)
+      {
+         if (this.getPack()[j].equals(card))
+         {
+            count++;
+         }
+      }
+      return count;
+   }
+   
+   void sort(){
+     Card.arraySort(cards, topCard);
+   
+   }
 }

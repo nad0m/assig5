@@ -115,8 +115,7 @@ class Hand
     * Sorts the hand by calling the arraySort() method in the card class.
     */
 public void sort() {
-	// TODO Auto-generated method stub
-	
+	Card.arraySort(myCards, getNumCards());
 }
 
 public Card playCard(int cardIndex) {
