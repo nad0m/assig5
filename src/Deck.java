@@ -132,4 +132,21 @@ class Deck
       return topCard;
    }
 
+public int getNumCards() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public boolean removeCard(Card card) {
+	return false;
+	// TODO Auto-generated method stub
+	
+}
+
+public boolean addCard(Card card) {
+	return false;
+	// TODO Auto-generated method stub
+	
+}
+
 }

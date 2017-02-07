@@ -39,7 +39,7 @@ public class CardTable extends JFrame
 	      pnlComputerHand.setBorder(BorderFactory.createTitledBorder("Computer Hand"));
 	      pnlHumanHand.setBorder(BorderFactory.createTitledBorder("Your Hand"));
 	      pnlPlayArea.setBorder(BorderFactory.createTitledBorder("Playing Area"));
-	      pnlPlayArea.setLayout(new GridLayout(1, 2));
+	      pnlPlayArea.setLayout(new GridLayout(2, 2));
 	}
 	
 	public int getNumCardsPerHand()

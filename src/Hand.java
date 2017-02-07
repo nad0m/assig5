@@ -108,6 +108,21 @@ class Hand
       {
          return myCards[k];
       }
-      return new Card('0', Card.Suit.SPADES);
+      return new Card('0', Card.Suit.S);
    }
+
+   /**
+    * Sorts the hand by calling the arraySort() method in the card class.
+    */
+public void sort() {
+	// TODO Auto-generated method stub
+	
+}
+
+public Card playCard(int cardIndex) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+
 }
