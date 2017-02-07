@@ -21,8 +21,8 @@ class Card
     */
    public static enum Suit
    {
-      C, D, H, S
-   ;}
+      C, D, H, S;
+   }
 
    public final static char[] cardNumber =
    { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
@@ -150,61 +150,83 @@ class Card
    {
       return errorFlag;
    }
-   
-   
-   
+
    /**
-    * Sorts the incoming array of cards using a bubble sort routine.  
+    * Sorts the incoming array of cards using a bubble sort routine.
     */
-   public static void arraySort(Card[] c, int arraySize){
+   public static void arraySort(Card[] c, int arraySize)
+   {
       boolean sorted = false;
-      while(sorted == false){
-      int swaps = 0;
-      for (int i = 0; i < c.length-1; i++)
+      while (sorted == false)
       {
-         Card temp;
-         if(compareCards(c[i],c[i+1])){
-            temp = c[i];
-            c[i] = c[i+1];
-            c[i+1] = temp;
-            swaps++;
+         int swaps = 0;
+         for (int i = 0; i < arraySize - 1; i++)
+         {
+            if (c[i + 1] != null&&  c[i]!=null)
+            {
+               if (isNotInOrder(c[i], c[i + 1]))
+               {
+                  Card temp = c[i];
+                  c[i] = c[i + 1];
+                  c[i + 1] = temp;
+                  swaps++;
+               }
+            }
          }
-      }
-         if(swaps == 0){
+         if (swaps == 0)
+         {
             sorted = true;
          }
       }
    }
-   
-   
-   private static boolean compareCards(Card a, Card b){
-      boolean greater = false;
-      int valueA =  getCardValueIndex( a.getValue());
-      int valueB =  getCardValueIndex( b.getValue());
-      if(valueA > valueB){
-         greater = true;
+
+   /**
+    * Checks that the cards are in order (used in arraySort)
+    * 
+    * @param a
+    * @param b
+    * @return returns true if it isn't in order, false otherwise.
+    */
+   private static boolean isNotInOrder(Card a, Card b)
+   {
+      int valueA = getCardValueIndex(a.getValue());
+      int valueB = getCardValueIndex(b.getValue());
+      if (valueA > valueB)
+      {
+         return true;
       }
-      return greater;
-   }
-   
-   
-  private static int getCardValueIndex( char value)
-   {
-     char[] ranks = valueRanks();
-     for (int i = 0; i < ranks.length; i++)
-   {
-        if(ranks[i] == value){
-           return i;
-        }
-     }
-     return -1;
+      return false;
    }
 
-public static char[] valueRanks(){
-   char [] ranks  = { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
-    return ranks;
-  }
-  
-   
-   
+   /**
+    * Returns the index of the card in the value rank array.
+    * 
+    * @param value
+    * @return index
+    */
+   private static int getCardValueIndex(char value)
+   {
+      char[] ranks = valueRanks();
+      for (int i = 0; i < ranks.length; i++)
+      {
+         if (ranks[i] == value)
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+
+   /**
+    * The official rank of each value.
+    * 
+    * @return
+    */
+   public static char[] valueRanks()
+   {
+      char[] ranks =
+      { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
+      return ranks;
+   }
+
 }
