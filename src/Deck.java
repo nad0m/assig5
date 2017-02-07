@@ -1,4 +1,3 @@
-
 /**
  * 
  * @author Keith
@@ -73,9 +72,8 @@ class Deck
       int cardLength = Card.cardNumber.length;
       for (int i = 0; i < masterPack.length; i++)
       {
-            suit = Card.Suit.values()[i/cardLength];
-            System.out.println(i/cardLength);
-         
+         suit = Card.Suit.values()[i / cardLength];
+
          // change suit after every 13th card
          masterPack[i] = new Card(Card.cardNumber[i % cardLength], suit);
       }
@@ -111,8 +109,7 @@ class Deck
          return null;
       }
 
-      Card theCard = new Card(cards[topCard - 1].getValue(),
-         cards[topCard - 1].getSuit());
+      Card theCard = new Card(cards[topCard - 1].getValue(), cards[topCard - 1].getSuit());
       cards[topCard - 1] = null;
       topCard--;
 
@@ -124,26 +121,69 @@ class Deck
       return topCard;
    }
 
-public int getNumCards() {
-	// TODO Auto-generated method stub
-	return 0;
-}
+   /**
+    * 
+    * @return
+    */
+   public int getNumCards()
+   {
+      return topCard;
+   }
 
-public boolean removeCard(Card card) {
-	return false;
-	// TODO Auto-generated method stub
-	
-}
+   /**
+    * You are looking to remove a specific card from the deck. Put the current
+    * top card into its place. Be sure the card you need is actually still in
+    * the deck, if not return false.
+    * 
+    * @param card
+    * @return
+    */
+   public boolean removeCard(Card card)
+   {
+      for (int i = topCard-1; i > 0; i--)
+      {
+         if(cards[i]!=null && card!= null){
+         while (cards[i].equals(card))
+         {
+            Card temp = dealCard();
+            if (!(temp.equals(card)))
+            {
+               cards[i] = temp;
+            }
+         }
+         }
 
-public boolean addCard(Card card) {
-   //make sure there aren't too many instances of the card.
+      }
+      return isNotInDeck(card);
+   }
    
-   //add the card to the top of the deck
-   
-   //return false if there are too many.
-   
-	return false;
-	
-}
+   /**
+    * check that a card is no longer in the deck.
+    * @param card
+    * @return false if the card exist, otherwise true
+    */
+   private boolean isNotInDeck(Card card){
+      boolean exist = true;
+      for (int j = 0; j < topCard; j++)
+      {
+         if (this.getPack()[j].equals(card))
+         {
+            exist = false;
+         }
+      }
+      return exist;
+   }
+
+   public boolean addCard(Card card)
+   {
+      // make sure there aren't too many instances of the card.   
+     // if(ca)
+      // add the card to the top of the deck
+
+      // return false if there are too many.
+
+      return false;
+
+   }
 
 }
