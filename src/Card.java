@@ -190,18 +190,19 @@ class Card
    
   private static int getCardValueIndex( char value)
    {
-     for (int i = 0; i < cardNumber.length; i++)
+     char[] ranks = valueRanks();
+     for (int i = 0; i < ranks.length; i++)
    {
-        if(cardNumber[i] == value){
+        if(ranks[i] == value){
            return i;
         }
      }
      return -1;
    }
 
-char[] valueRanks(){
-   return null;
-     
+public static char[] valueRanks(){
+   char [] ranks  = { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
+    return ranks;
   }
   
    
