@@ -26,7 +26,7 @@ class Phase2
 	      
 	    // establish main frame in which program will run
 	    CardTable myCardTable = new CardTable("Card Game", NUM_CARDS_PER_HAND, NUM_PLAYERS);
-	    myCardTable.setSize(800, 600);
+	    myCardTable.setSize(900, 600);
 	    myCardTable.setLocationRelativeTo(null);
 	    myCardTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	      
@@ -48,14 +48,28 @@ class Phase2
 	    {
 	    	myCardTable.pnlComputerHand.add(computerLabels[i]);
 	    	myCardTable.pnlHumanHand.add(humanLabels[i]);
-	    	
-	    	if (i < 2)
-	    	{
-	    		playedCardLabels[i] = new JLabel (GUICard.getIcon(generateRandomCard()));
-	    		myCardTable.pnlPlayArea.add(playedCardLabels[i]);
-	    	}
+	    
+	    	  
 	    }
-	      
+	
+	    JLabel playerCardLabel;
+	    JLabel computerCardLabel;
+	    
+       playedCardLabels[0] = new JLabel (GUICard.getIcon(generateRandomCard()));
+       playedCardLabels[1] = new JLabel (GUICard.getIcon(generateRandomCard()));
+          
+       playerCardLabel = new JLabel( "You", JLabel.CENTER );
+    
+       computerCardLabel = new JLabel( "Computer", JLabel.CENTER );
+       
+       
+       myCardTable.pnlPlayArea.add(playedCardLabels[0]);
+       myCardTable.pnlPlayArea.add(playedCardLabels[1]);
+      
+       myCardTable.pnlPlayArea.add(playerCardLabel);
+       myCardTable.pnlPlayArea.add(computerCardLabel);
+       myCardTable.pack();
+    
 	    
 	    
 	    

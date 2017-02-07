@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * The Card class is responsible for holding data and methods related to the
  * individual cards. It contains instance variables for the value and suit. It
@@ -20,7 +22,7 @@ class Card
    public static enum Suit
    {
       C, D, H, S
-   }
+   ;}
 
    public final static char[] cardNumber =
    { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
@@ -148,6 +150,61 @@ class Card
    {
       return errorFlag;
    }
+   
+   
+   
+   /**
+    * Sorts the incoming array of cards using a bubble sort routine.  
+    */
+   public static void arraySort(Card[] c, int arraySize){
+      boolean sorted = false;
+      while(sorted == false){
+      int swaps = 0;
+      for (int i = 0; i < c.length-1; i++)
+      {
+         Card temp;
+         if(compareCards(c[i],c[i+1])){
+            temp = c[i];
+            c[i] = c[i+1];
+            c[i+1] = temp;
+            swaps++;
+         }
+      }
+         if(swaps == 0){
+            sorted = true;
+         }
+      }
+   }
+   
+   
+   private static boolean compareCards(Card a, Card b){
+      boolean greater = false;
+      int valueA =  getCardValueIndex( a.getValue());
+      int valueB =  getCardValueIndex( b.getValue());
+      if(valueA > valueB){
+         greater = true;
+      }
+      return greater;
+   }
+   
+   
+  private static int getCardValueIndex( char value)
+   {
+     char[] ranks = valueRanks();
+     for (int i = 0; i < ranks.length; i++)
+   {
+        if(ranks[i] == value){
+           return i;
+        }
+     }
+     return -1;
+   }
+
+public static char[] valueRanks(){
+   char [] ranks  = { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
+    return ranks;
+  }
+  
    
    
 }

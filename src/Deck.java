@@ -61,7 +61,7 @@ class Deck
       cards = new Card[numPacks * NUMBER_OF_CARDS];
       for (int i = 0; i < cards.length; i++)
       {
-         cards[i] = masterPack[i % 52];
+         cards[i] = masterPack[i % NUMBER_OF_CARDS];
          topCard++;
       }
 
@@ -70,22 +70,14 @@ class Deck
    private static void allocateMasterPack()
    {
       Card.Suit suit;
+      int cardLength = Card.cardNumber.length;
       for (int i = 0; i < masterPack.length; i++)
       {
-         if (i < 13)
-         {
-            suit = Card.Suit.C;
-         } else if (i < 26)
-            suit = Card.Suit.D;
-         else if (i < 39)
-         {
-            suit = Card.Suit.H;
-         } else
-         {
-            suit = Card.Suit.S;
-         }
+            suit = Card.Suit.values()[i/cardLength];
+            System.out.println(i/cardLength);
+         
          // change suit after every 13th card
-         masterPack[i] = new Card(Card.cardNumber[i % 13], suit);
+         masterPack[i] = new Card(Card.cardNumber[i % cardLength], suit);
       }
       emptyMasterPack = false;
    }
@@ -131,5 +123,27 @@ class Deck
    {
       return topCard;
    }
+
+public int getNumCards() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public boolean removeCard(Card card) {
+	return false;
+	// TODO Auto-generated method stub
+	
+}
+
+public boolean addCard(Card card) {
+   //make sure there aren't too many instances of the card.
+   
+   //add the card to the top of the deck
+   
+   //return false if there are too many.
+   
+	return false;
+	
+}
 
 }
