@@ -162,7 +162,7 @@ class Card implements Comparable<Card>
          int swaps = 0;
          for (int i = 0; i < arraySize - 1; i++)
          {
-            if (c[i + 1] != null&&  c[i]!=null)
+            if (c[i + 1] != null && c[i] != null)
             {
                if (isNotInOrder(c[i], c[i + 1]))
                {
@@ -234,6 +234,5 @@ class Card implements Comparable<Card>
    {
       return Integer.compare(getCardValueIndex(this.value), getCardValueIndex(card.getValue()));
    }
-   
 
 }

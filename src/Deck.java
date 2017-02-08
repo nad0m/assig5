@@ -61,7 +61,8 @@ class Deck
       for (int i = 0; i < cards.length; i++)
       {
          cards[i] = masterPack[i % NUMBER_OF_CARDS];
-         if(topCard != cards.length){
+         if (topCard != cards.length)
+         {
             topCard++;
          }
       }
@@ -206,9 +207,10 @@ class Deck
       }
       return count;
    }
-   
-   void sort(){
-     Card.arraySort(cards, topCard);
-   
+
+   void sort()
+   {
+      Card.arraySort(cards, topCard);
+
    }
 }

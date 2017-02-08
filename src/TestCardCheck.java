@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -40,13 +39,15 @@ public class TestCardCheck
       assertEquals("ILLEGAL STATE", a.toString());
 
    }
- @Test
- public void initCardTest(){
-    Deck d = new Deck(1);
-   assertEquals((52+4)*1, d.getPack().length);
-   Deck c = new Deck();
-   assertEquals(56, c.getPack().length);
-   //assertEquals(false, c.emptyMasterPack); //private variable
-   //assertEquals(1, c.calls);
- }
+
+   @Test
+   public void initCardTest()
+   {
+      Deck d = new Deck(1);
+      assertEquals((52 + 4) * 1, d.getPack().length);
+      Deck c = new Deck();
+      assertEquals(56, c.getPack().length);
+      // assertEquals(false, c.emptyMasterPack); //private variable
+      // assertEquals(1, c.calls);
+   }
 }

@@ -21,11 +21,11 @@ public class TestPhase3
       int numPacksPerDeck = 1;
       int numJokersPerPack = 0;
       int numUnusedCardsPerPack = 0;
-     
+
       Card[] unusedCardsPerPack = null;
-      
+
       CardGameFramework highCardGame = new CardGameFramework(numPacksPerDeck, numJokersPerPack, numUnusedCardsPerPack, unusedCardsPerPack, NUM_PLAYERS, NUM_CARDS_PER_HAND);
-      
+
       highCardGame.deal();
    }
 
@@ -66,7 +66,8 @@ public class TestPhase3
             if (d.getPack()[i].equals(new Card('A', Card.Suit.S)))
             {
                exist = true;
-            } else if (d.getPack()[i].getValue() == '2'){
+            } else if (d.getPack()[i].getValue() == '2')
+            {
                cards++;
             }
          }
@@ -85,14 +86,15 @@ public class TestPhase3
 
       assertEquals(true, d.dealCard().equals(new Card('X', Card.Suit.S)));
    }
-   
+
    @Test
-   public void addCardTest(){
+   public void addCardTest()
+   {
       Deck d = new Deck();
-      assertEquals(false, d.addCard(new Card('A',Card.Suit.S)));
-      d.removeCard(new Card('A',Card.Suit.D));
-      assertEquals(true,d.addCard(new Card('A',Card.Suit.D)));
-     
+      assertEquals(false, d.addCard(new Card('A', Card.Suit.S)));
+      d.removeCard(new Card('A', Card.Suit.D));
+      assertEquals(true, d.addCard(new Card('A', Card.Suit.D)));
+
    }
-   
+
 }
