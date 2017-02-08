@@ -20,9 +20,6 @@ class Phase2
 
    public static void main(String[] args)
    {
-      int k;
-      Icon tempIcon;
-
       // establish main frame in which program will run
       CardTable myCardTable = new CardTable("Card Game", NUM_CARDS_PER_HAND, NUM_PLAYERS);
       myCardTable.setSize(900, 600);

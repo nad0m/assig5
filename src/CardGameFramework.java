@@ -137,6 +137,9 @@ class CardGameFramework
       return enoughCards;
    }
 
+   /**
+    * Sorts the hands
+    */
    void sortHands()
    {
       int k;
@@ -145,6 +148,13 @@ class CardGameFramework
          hand[k].sort();
    }
 
+   /**
+    * gets the card played
+    * 
+    * @param playerIndex
+    * @param cardIndex
+    * @return
+    */
    Card playCard(int playerIndex, int cardIndex)
    {
       // returns bad card if either argument is bad
@@ -160,6 +170,11 @@ class CardGameFramework
 
    }
 
+   /**
+    * takes a card.
+    * @param playerIndex
+    * @return
+    */
    boolean takeCard(int playerIndex)
    {
       // returns false if either argument is bad

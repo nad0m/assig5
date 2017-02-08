@@ -5,6 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
+/**
+ * 
+ * @author Keith, Huy and Wiz
+ *
+ */
 public class Phase3
 {
    static int NUM_CARDS_PER_HAND = 7;
