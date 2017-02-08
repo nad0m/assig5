@@ -19,7 +19,8 @@ public class CardTable extends JFrame
 	private int numCardsPerHand;
 	private int numPlayers;
 	
-	public JPanel pnlComputerHand, pnlHumanHand, pnlPlayArea;
+	public JPanel pnlComputerHand, pnlHumanHand, pnlPlayArea; 
+	//public JLabel lblConsole;
 
 	
 	CardTable(String title, int numCardsPerHand, int numPlayers)
@@ -30,17 +31,19 @@ public class CardTable extends JFrame
 	      pnlComputerHand = new JPanel();
 	      pnlHumanHand = new JPanel();
 	      pnlPlayArea = new JPanel();
-	      
+
+	     
 	      mainPanel.setLayout(new GridLayout(3, 1));
 	      mainPanel.add(pnlComputerHand);
 	      mainPanel.add(pnlPlayArea);
 	      mainPanel.add(pnlHumanHand);
+	     
 	      add(mainPanel, BorderLayout.CENTER);
 	      
 	      pnlComputerHand.setBorder(BorderFactory.createTitledBorder("Computer Hand"));
 	      pnlHumanHand.setBorder(BorderFactory.createTitledBorder("Your Hand"));
 	      pnlPlayArea.setBorder(BorderFactory.createTitledBorder("Playing Area"));
-	      pnlPlayArea.setLayout(new GridLayout(2, 2));
+	      pnlPlayArea.setLayout(new GridLayout(2, 4));
 	}
 	
 	public int getNumCardsPerHand()

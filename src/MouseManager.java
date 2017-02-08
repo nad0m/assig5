@@ -2,6 +2,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
@@ -44,10 +45,14 @@ public class MouseManager implements MouseListener
    @Override
    public void mousePressed(MouseEvent e)
    {
-     playHumanCard();
-     playComputerCard();
+     System.out.println(playHumanCard().compareTo(playComputerCard()));
      Phase3.myCardTable.repaint();
-    // JOptionPane.showMessageDialog(Phase3.myCardTable, "HELLO");
+     //JLabel j = new JLabel();
+     //j.setText("you lost");
+     //Phase3.myCardTable.pnlHumanHand.remove(0);
+     //Phase3.myCardTable.pnlHumanHand.add(j);
+     //Phase3.myCardTable.pack();
+     //JOptionPane.showMessageDialog(Phase3.myCardTable, "You lost");
    }
 
    @Override
@@ -58,7 +63,7 @@ public class MouseManager implements MouseListener
    }
    
    public Card playHumanCard(){
-      System.out.println(index);
+     // System.out.println(index);
       Phase3.playedCardLabels[0].setIcon(Phase3.humanLabels[index].getIcon());
       Phase3.myCardTable.pnlHumanHand.remove(Phase3.humanLabels[index]);
       return Phase3.highCardGame.getHand(0).inspectCard(index);

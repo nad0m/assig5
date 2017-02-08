@@ -1,10 +1,9 @@
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.Random;
+import java.awt.Color;
 
-import javax.swing.Icon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 
 
 public class Phase3
@@ -15,6 +14,7 @@ public class Phase3
    static JLabel[] humanLabels = new JLabel[NUM_CARDS_PER_HAND];  
    static JLabel[] playedCardLabels  = new JLabel[NUM_PLAYERS]; 
    static JLabel[] playLabelText  = new JLabel[NUM_PLAYERS]; 
+   static JLabel[] results = new JLabel[NUM_PLAYERS];
    static CardTable myCardTable;
    static CardGameFramework highCardGame;
 
@@ -62,23 +62,40 @@ public class Phase3
         
   
        }
-       
-       //TODO add to playlabel text array
-       JLabel playerCardLabel;
-       JLabel computerCardLabel;
-       
       
-          
-       playerCardLabel = new JLabel( "You", JLabel.CENTER );
-    
-       computerCardLabel = new JLabel( "Computer", JLabel.CENTER );
+       JLayeredPane lp = new JLayeredPane();
+
+       // Create 3 buttons
+       for (int i = 0; i < 8; i+=2)
+      {
+          JLabel top = new JLabel();
+         
+       top.setBackground(Color.white);
+       top.setIcon(GUICard.getBackCardIcon());
+       top.setBounds((i), 0, GUICard.getBackCardIcon().getIconWidth(), GUICard.getBackCardIcon().getIconHeight());
+
+       // Place the buttons in different layers
+       lp.add(top, new Integer(i));
+      }
        
+       JLabel label = new JLabel("", JLabel.CENTER );
+       //TODO add to playlabel text array
+ 
+       playLabelText[0] =  new JLabel( "You", JLabel.CENTER );
+       playLabelText[1] =  new JLabel( "Computer", JLabel.CENTER );
+       results[0] = new JLabel( "", JLabel.CENTER );
+       results[1] = new JLabel( "", JLabel.CENTER );
        
+       myCardTable.pnlPlayArea.add(results[0]);
        myCardTable.pnlPlayArea.add(playedCardLabels[0]);
        myCardTable.pnlPlayArea.add(playedCardLabels[1]);
-      
-       myCardTable.pnlPlayArea.add(playerCardLabel);
-       myCardTable.pnlPlayArea.add(computerCardLabel);
+       myCardTable.pnlPlayArea.add(lp);
+       myCardTable.pnlPlayArea.add(results[1]);
+       myCardTable.pnlPlayArea.add(playLabelText[0]);
+       myCardTable.pnlPlayArea.add(playLabelText[1]);
+       myCardTable.pnlPlayArea.add(label);
+       
+       
        myCardTable.pack();
     
        

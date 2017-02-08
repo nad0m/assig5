@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author Keith
  *
  */
-class Card
+class Card implements Comparable<Card>
 {
    private char value;
    private Suit suit;
@@ -228,5 +228,12 @@ class Card
       { '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'X' };
       return ranks;
    }
+
+   @Override
+   public int compareTo(Card card)
+   {
+      return Integer.compare(getCardValueIndex(this.value), getCardValueIndex(card.getValue()));
+   }
+   
 
 }
