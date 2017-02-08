@@ -1,7 +1,9 @@
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
 
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -9,7 +11,9 @@ import javax.swing.JOptionPane;
 public class MouseManager implements MouseListener
 {
    public int index;
- 
+   public static int turn = 0;
+   public static int computerCardWins;
+   public static int humanCardWins;
    
    public MouseManager(int index)
    {
@@ -45,14 +49,9 @@ public class MouseManager implements MouseListener
    @Override
    public void mousePressed(MouseEvent e)
    {
-     System.out.println(playHumanCard().compareTo(playComputerCard()));
+     determineWinner();
+     addWinnings();
      Phase3.myCardTable.repaint();
-     //JLabel j = new JLabel();
-     //j.setText("you lost");
-     //Phase3.myCardTable.pnlHumanHand.remove(0);
-     //Phase3.myCardTable.pnlHumanHand.add(j);
-     //Phase3.myCardTable.pack();
-     //JOptionPane.showMessageDialog(Phase3.myCardTable, "You lost");
    }
 
    @Override
@@ -60,6 +59,20 @@ public class MouseManager implements MouseListener
    {
       // TODO Auto-generated method stub
 
+   }
+   public void determineWinner(){
+      Card a = playHumanCard();
+      Card b = playComputerCard();
+      if(a.compareTo(b)>0){
+         Phase3.computerWinning[humanCardWins++] = a;
+         Phase3.computerWinning[humanCardWins++] = b;
+      } else if( a.compareTo(b)<0){
+      Phase3.computerWinning[computerCardWins++] = a;
+      Phase3.computerWinning[computerCardWins++] = b;
+      JOptionPane.showMessageDialog(Phase3.myCardTable, "You lost");
+      }else{
+         JOptionPane.showMessageDialog(Phase3.myCardTable, "Tie!");
+      }
    }
    
    public Card playHumanCard(){
@@ -83,6 +96,32 @@ public class MouseManager implements MouseListener
       return Phase3.highCardGame.getHand(1).inspectCard(rand);
     
    
+   }
+   
+   public static void addWinnings(){
+      for (int i = 0; i < humanCardWins; i+=2)
+      {
+          JLabel top = new JLabel();
+         
+       top.setBackground(Color.white);
+       top.setIcon(GUICard.getBackCardIcon());
+       top.setBounds( i, 0, GUICard.getBackCardIcon().getIconWidth(), GUICard.getBackCardIcon().getIconHeight());
+
+       // Place the buttons in different layers
+       Phase3.winningStack[0].add(top, new Integer(i));
+      }
+      for (int i = 0; i < computerCardWins; i+=2)
+      {
+          JLabel top = new JLabel();
+         
+       top.setBackground(Color.white);
+       Icon back = GUICard.getBackCardIcon();
+       top.setIcon(back);
+       top.setBounds(Phase3.winningStack[1].getWidth()-back.getIconWidth()-i, 0, GUICard.getBackCardIcon().getIconWidth(), GUICard.getBackCardIcon().getIconHeight());
+
+       // Place the buttons in different layers
+       Phase3.winningStack[1].add(top, new Integer(i));
+      }
    }
 
 }

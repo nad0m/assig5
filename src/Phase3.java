@@ -17,8 +17,9 @@ public class Phase3
    static JLabel[] results = new JLabel[NUM_PLAYERS];
    static CardTable myCardTable;
    static CardGameFramework highCardGame;
-
-   
+   static Card[] computerWinning = new Card[NUM_CARDS_PER_HAND*NUM_PLAYERS];
+   static Card[] humanWinning = new Card[NUM_CARDS_PER_HAND*NUM_PLAYERS];
+   static  JLayeredPane[] winningStack = new JLayeredPane[NUM_PLAYERS];
    public static void main(String[] args)
    {
       int numPacksPerDeck = 1;
@@ -62,23 +63,13 @@ public class Phase3
         
   
        }
-      
-       JLayeredPane lp = new JLayeredPane();
-
+       for(int i = 0; i<NUM_PLAYERS; i++){
+          winningStack[i] = new JLayeredPane();
+       }
        // Create 3 buttons
-       for (int i = 0; i < 8; i+=2)
-      {
-          JLabel top = new JLabel();
-         
-       top.setBackground(Color.white);
-       top.setIcon(GUICard.getBackCardIcon());
-       top.setBounds((i), 0, GUICard.getBackCardIcon().getIconWidth(), GUICard.getBackCardIcon().getIconHeight());
-
-       // Place the buttons in different layers
-       lp.add(top, new Integer(i));
-      }
        
-       JLabel label = new JLabel("", JLabel.CENTER );
+       
+       
        //TODO add to playlabel text array
  
        playLabelText[0] =  new JLabel( "You", JLabel.CENTER );
@@ -86,14 +77,14 @@ public class Phase3
        results[0] = new JLabel( "", JLabel.CENTER );
        results[1] = new JLabel( "", JLabel.CENTER );
        
-       myCardTable.pnlPlayArea.add(results[0]);
+       myCardTable.pnlPlayArea.add(winningStack[0]);
        myCardTable.pnlPlayArea.add(playedCardLabels[0]);
        myCardTable.pnlPlayArea.add(playedCardLabels[1]);
-       myCardTable.pnlPlayArea.add(lp);
-       myCardTable.pnlPlayArea.add(results[1]);
+       myCardTable.pnlPlayArea.add(winningStack[1]);
+       myCardTable.pnlPlayArea.add(results[0]);
        myCardTable.pnlPlayArea.add(playLabelText[0]);
        myCardTable.pnlPlayArea.add(playLabelText[1]);
-       myCardTable.pnlPlayArea.add(label);
+       myCardTable.pnlPlayArea.add(results[1]);
        
        
        myCardTable.pack();
@@ -105,6 +96,9 @@ public class Phase3
        myCardTable.setVisible(true);
     }
 
+
+    
+   
 
 
       
