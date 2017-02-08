@@ -4,8 +4,10 @@ import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.Icon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
 public class MouseManager implements MouseListener
@@ -52,6 +54,17 @@ public class MouseManager implements MouseListener
      determineWinner();
      addWinnings();
      Phase3.myCardTable.repaint();
+     turn++;
+     if(turn >= Phase3.NUM_CARDS_PER_HAND){
+        if(computerCardWins > humanCardWins){
+           JOptionPane.showMessageDialog(Phase3.myCardTable, "GAME OVER\nYou lost");
+        } else {
+           JOptionPane.showMessageDialog(Phase3.myCardTable, "You WON");
+        }
+        
+     }
+     System.out.println(turn);
+     
    }
 
    @Override
@@ -99,6 +112,9 @@ public class MouseManager implements MouseListener
    }
    
    public static void addWinnings(){
+      Phase3.results[0].setText(humanCardWins+" cards won");      
+      Phase3.results[1].setText(computerCardWins+" cards won");
+
       for (int i = 0; i < humanCardWins; i+=2)
       {
           JLabel top = new JLabel();

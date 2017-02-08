@@ -74,8 +74,8 @@ public class Phase3
  
        playLabelText[0] =  new JLabel( "You", JLabel.CENTER );
        playLabelText[1] =  new JLabel( "Computer", JLabel.CENTER );
-       results[0] = new JLabel( "", JLabel.CENTER );
-       results[1] = new JLabel( "", JLabel.CENTER );
+       results[0] = new JLabel( "", JLabel.LEFT );
+       results[1] = new JLabel( "", JLabel.RIGHT );
        
        myCardTable.pnlPlayArea.add(winningStack[0]);
        myCardTable.pnlPlayArea.add(playedCardLabels[0]);
